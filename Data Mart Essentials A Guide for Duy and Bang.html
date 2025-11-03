@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mart Essentials: A Guide for Duy and Bang</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuration for Inter font and colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#4f46e5', // Indigo
+                        'secondary': '#10b981', // Emerald
+                        'background-dark': '#111827', // Gray-900
+                        'card-light': '#ffffff', // White
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Apply the Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .section-header {
+            border-left: 4px solid #4f46e5; /* primary color */
+            padding-left: 1rem;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+    <header class="bg-primary shadow-lg p-6 md:p-10 text-white">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-extrabold mb-1">Data Mart Learning Hub</h1>
+            <p class="text-indigo-200 text-xl">
+                The essentials of Data Marts for Duy and Bang. Focused, fast, and friendly!
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 md:p-6 space-y-8">
+
+        <!-- Introduction: What is a Data Mart? -->
+        <section class="bg-card-light p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 section-header">1. What is a Data Mart?</h2>
+            <p class="text-lg mb-4 text-gray-600">
+                A **Data Mart** is a simple, subject-oriented data warehouse designed to meet the specific analytical needs of a defined group of users or a single business function (like Finance, Marketing, or Sales). Think of it as a small, specialized shop that pulls only the most relevant goods from a giant warehouse.
+            </p>
+            <p class="text-md font-medium text-gray-700">
+                They are typically smaller, contain fewer historical data, and focus on a single line of business, making analysis quicker and more focused.
+            </p>
+            <!-- Visual Aid suggestion -->
+            <div class="mt-4 p-3 bg-indigo-50 border-l-4 border-primary rounded-md">
+                <p class="text-sm italic text-primary font-semibold">
+                    
+                </p>
+            </div>
+        </section>
+
+        <!-- Types of Data Marts -->
+        <section class="bg-card-light p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 section-header">2. The Three Types of Data Marts</h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Dependent Data Mart -->
+                <div class="p-4 rounded-lg bg-indigo-50 border border-indigo-200">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Dependent Data Mart</h3>
+                    <p class="text-sm text-gray-600">
+                        **Sourced from the Data Warehouse.** This is the most common and recommended approach. Data is extracted, transformed, and loaded (ETL) from the central Data Warehouse. They ensure data consistency across the entire organization.
+                    </p>
+                </div>
+                <!-- Independent Data Mart -->
+                <div class="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <h3 class="text-xl font-semibold text-secondary mb-2">Independent Data Mart</h3>
+                    <p class="text-sm text-gray-600">
+                        **Sourced directly from operational systems.** They are built without a central Data Warehouse. While quick to deploy, they can lead to data redundancy and inconsistency across departments.
+                    </p>
+                </div>
+                <!-- Hybrid Data Mart -->
+                <div class="p-4 rounded-lg bg-yellow-50 border border-yellow-200">
+                    <h3 class="text-xl font-semibold text-yellow-800 mb-2">Hybrid Data Mart</h3>
+                    <p class="text-sm text-gray-600">
+                        **Sourced from both.** Data comes from a Data Warehouse and directly from external operational sources. Used when specialized data is needed that isn't in the main warehouse.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Mart vs. Data Warehouse Comparison -->
+        <section class="bg-card-light p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 section-header">3. Data Mart vs. Data Warehouse</h2>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden border border-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Feature</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data Warehouse (DW)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Data Mart (DM)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Scope</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Enterprise-wide (e.g., all departments)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Single functional area (e.g., Sales or HR)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Data Volume</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Huge (Terabytes)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Small (Gigabytes to smaller Terabytes)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Data Source</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Multiple, disparate operational systems</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Data Warehouse or a few operational systems</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50 bg-gray-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Deployment Time</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Months or years</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600">Weeks or a few months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Key Benefits -->
+        <section class="bg-card-light p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 section-header">4. Why Use a Data Mart? (Key Benefits)</h2>
+
+            <div class="space-y-3">
+                <div class="flex items-start">
+                    <svg class="h-6 w-6 text-secondary flex-shrink-0 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-gray-700">
+                        **Faster Access:** Data is pre-aggregated and specialized, allowing users to query data much faster than searching a vast Data Warehouse.
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="h-6 w-6 text-secondary flex-shrink-0 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-gray-700">
+                        **Ease of Use:** Users only see the data relevant to their department, simplifying complex reporting and analysis tools.
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="h-6 w-6 text-secondary flex-shrink-0 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-gray-700">
+                        **Better Security:** Sensitive data outside the user's domain (e.g., HR data for a Sales analyst) is simply not included, improving security and compliance.
+                    </p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="h-6 w-6 text-secondary flex-shrink-0 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-gray-700">
+                        **Faster Development:** Since the scope is limited, Data Marts can be designed and deployed much faster than a full Data Warehouse.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Quiz Section Placeholder -->
+        <section class="bg-card-light p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-xl" id="quiz-section">
+            <h2 class="text-2xl font-bold mb-4 section-header">5. Test Your Knowledge!</h2>
+            <p class="mb-4 text-gray-600">
+                Generate a quiz question to solidify your understanding of Data Marts vs. Data Warehouses.
+            </p>
+
+            <div class="space-y-4">
+                <textarea id="quiz-prompt" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition" placeholder="Example: What is the main difference in scope between a Dependent Data Mart and a Data Warehouse?" rows="3"></textarea>
+                <button id="generate-quiz-btn" class="w-full bg-secondary text-white font-bold py-3 px-4 rounded-lg shadow-md hover:bg-emerald-600 transition duration-300">
+                    Generate Quiz Question
+                </button>
+                <div id="quiz-output" class="hidden mt-4 p-4 bg-gray-100 border border-gray-300 rounded-lg">
+                    <p class="font-semibold text-lg text-gray-800 mb-2">Generated Question:</p>
+                    <p id="question-text" class="text-gray-700"></p>
+                    <div id="sources-container" class="mt-3 text-xs text-gray-500 italic hidden">Sources: <ul id="sources-list" class="list-disc list-inside ml-4"></ul></div>
+                </div>
+                <div id="loading-indicator" class="hidden text-center text-primary font-semibold">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-primary inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Thinking of a great question...
+                </div>
+            </div>
+
+            <!-- Error/Info Message Box -->
+            <div id="message-box" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 hidden">
+                <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full">
+                    <h3 class="text-xl font-bold text-red-600 mb-3">Error Generating Content</h3>
+                    <p id="message-content" class="text-gray-700">Could not connect to the service or the response was empty.</p>
+                    <button onclick="document.getElementById('message-box').classList.add('hidden')" class="mt-4 w-full bg-primary text-white font-bold py-2 rounded-lg hover:bg-indigo-600 transition">Close</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-10 p-6 bg-gray-100 text-center text-gray-500">
+        <p>&copy; 2025 Data Education for Duy & Bang. Start your data journey!</p>
+    </footer>
+
+    <script type="module">
+        // Global variables provided by the environment
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+        const generateBtn = document.getElementById('generate-quiz-btn');
+        const promptInput = document.getElementById('quiz-prompt');
+        const outputDiv = document.getElementById('quiz-output');
+        const questionText = document.getElementById('question-text');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const messageBox = document.getElementById('message-box');
+        const messageContent = document.getElementById('message-content');
+        const sourcesList = document.getElementById('sources-list');
+        const sourcesContainer = document.getElementById('sources-container');
+
+        /**
+         * Simple utility to show a message box (replaces alert()).
+         * @param {string} title
+         * @param {string} content
+         * @param {string} [type='error']
+         */
+        function showMessage(title, content, type = 'error') {
+            document.querySelector('#message-box h3').textContent = title;
+            document.querySelector('#message-box h3').classList.toggle('text-red-600', type === 'error');
+            document.querySelector('#message-box h3').classList.toggle('text-secondary', type === 'success');
+            messageContent.textContent = content;
+            messageBox.classList.remove('hidden');
+        }
+
+        // --- LLM API Call Logic ---
+
+        const systemPrompt = "You are a friendly, concise data tutor. Given a user's prompt about data marts, generate a single, short, clear quiz question (including multiple-choice options if appropriate) to test their knowledge. Do not provide the answer. Respond only with the question.";
+
+        async function fetchQuizContent(prompt) {
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            const maxRetries = 3;
+            let delay = 1000;
+
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        const text = candidate.content.parts[0].text;
+                        let sources = [];
+                        const groundingMetadata = candidate.groundingMetadata;
+
+                        if (groundingMetadata && groundingMetadata.groundingAttributions) {
+                            sources = groundingMetadata.groundingAttributions
+                                .map(attribution => ({
+                                    uri: attribution.web?.uri,
+                                    title: attribution.web?.title,
+                                }))
+                                .filter(source => source.uri && source.title);
+                        }
+
+                        return { text, sources };
+                    } else {
+                        throw new Error("Received an empty or malformed response from the model.");
+                    }
+
+                } catch (error) {
+                    console.error("API call failed (Attempt " + (i + 1) + "):", error);
+                    if (i < maxRetries - 1) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        delay *= 2; // Exponential backoff
+                    } else {
+                        throw new Error("Failed to generate content after multiple retries.");
+                    }
+                }
+            }
+            // Should be unreachable if the loop works correctly
+            throw new Error("Exited retry loop unexpectedly.");
+        }
+
+        // --- Event Listener ---
+
+        generateBtn.addEventListener('click', async () => {
+            const userPrompt = promptInput.value.trim();
+
+            if (!userPrompt) {
+                showMessage("Input Required", "Please enter a concept or question you'd like the quiz to cover.", 'error');
+                return;
+            }
+
+            // UI updates for loading
+            outputDiv.classList.add('hidden');
+            loadingIndicator.classList.remove('hidden');
+            generateBtn.disabled = true;
+
+            try {
+                const { text, sources } = await fetchQuizContent(userPrompt);
+
+                questionText.textContent = text;
+                outputDiv.classList.remove('hidden');
+
+                // Update sources
+                sourcesList.innerHTML = '';
+                if (sources.length > 0) {
+                    sourcesContainer.classList.remove('hidden');
+                    sources.forEach(source => {
+                        const li = document.createElement('li');
+                        const a = document.createElement('a');
+                        a.href = source.uri;
+                        a.textContent = source.title;
+                        a.target = "_blank";
+                        a.classList.add('text-primary', 'hover:underline');
+                        li.appendChild(a);
+                        sourcesList.appendChild(li);
+                    });
+                } else {
+                    sourcesContainer.classList.add('hidden');
+                }
+
+            } catch (error) {
+                showMessage("API Error", error.message || "An unknown error occurred while generating the quiz question.", 'error');
+                outputDiv.classList.add('hidden');
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                generateBtn.disabled = false;
+            }
+        });
+
+    </script>
+</body>
+</html>

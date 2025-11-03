@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineering Concepts for Duy & Bang</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Font for better readability */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc; /* Light background */
+        }
+        .concept-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        /* Style for the main container to prevent excessive width on large screens */
+        .max-w-7xl {
+            max-width: 1280px;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="text-center py-10 bg-white shadow-lg rounded-xl mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-800 tracking-tight">
+                The Modern Data Stack
+            </h1>
+            <p class="mt-4 text-xl text-gray-600">
+                A learning guide for Duy & Bang on Data Marts, Data Lakes, ETL, Pipelines, and NoSQL databases.
+            </p>
+        </header>
+
+        <!-- Navigation/Table of Contents (Sticky on desktop) -->
+        <nav class="sticky top-0 z-10 bg-blue-700 text-white rounded-lg p-3 shadow-md mb-8">
+            <h2 class="text-lg font-bold mb-2">Topics Covered</h2>
+            <div class="flex flex-wrap gap-2 text-sm">
+                <a href="#data-storage" class="p-2 bg-blue-600 hover:bg-blue-500 rounded-full transition duration-150">Data Storage</a>
+                <a href="#data-flow" class="p-2 bg-blue-600 hover:bg-blue-500 rounded-full transition duration-150">Data Flow (ETL)</a>
+                <a href="#pipelines" class="p-2 bg-blue-600 hover:bg-blue-500 rounded-full transition duration-150">Data Pipelines</a>
+                <a href="#cassandra" class="p-2 bg-blue-600 hover:bg-blue-500 rounded-full transition duration-150">Cassandra</a>
+                <a href="#hbase" class="p-2 bg-blue-600 hover:bg-blue-500 rounded-full transition duration-150">HBase</a>
+            </div>
+        </nav>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Section 1: Data Storage Concepts -->
+            <section id="data-storage" class="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 pb-2">1. Data Storage: Lake vs. Mart</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Data Lake Card -->
+                    <div class="concept-card bg-gray-50 p-6 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="text-2xl font-semibold text-indigo-700 mb-3">Data Lake</h3>
+                        <p class="text-gray-700">
+                            A **Data Lake** is a centralized repository that stores **all** your data—structured, semi-structured, and unstructured—at any scale. It's often used for **storing raw data** "as is," without first structuring it.
+                        </p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Data Schema:** Schema-on-Read (define structure when reading).</li>
+                            <li>**Primary Users:** Data Scientists, Machine Learning Engineers.</li>
+                            <li>**Purpose:** Big Data analytics, discovery, and advanced modeling.</li>
+                        </ul>
+                        
+                    </div>
+                    
+                    <!-- Data Mart Card -->
+                    <div class="concept-card bg-gray-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-3">Data Mart</h3>
+                        <p class="text-gray-700">
+                            A **Data Mart** is a simpler, highly focused subset of a Data Warehouse (or Data Lake). It is designed to serve a **specific business function** or team, such as Sales, Finance, or Marketing.
+                        </p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Data Schema:** Schema-on-Write (highly structured when written).</li>
+                            <li>**Primary Users:** Business Analysts, Executive Reporting.</li>
+                            <li>**Purpose:** Simple, fast reporting and dashboarding for specific departments.</li>
+                        </ul>
+                        [Image of Data Mart concept showing a subset of data from a larger warehouse]
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Data Flow (ETL/ELT) -->
+            <section id="data-flow" class="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 pb-2">2. Data Flow: ETL and ELT</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- ETL Card -->
+                    <div class="concept-card bg-gray-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                        <h3 class="text-2xl font-semibold text-yellow-700 mb-3">ETL (Extract, Transform, Load)</h3>
+                        <p class="text-gray-700">
+                            This is the traditional method:
+                            <ol class="list-decimal list-inside mt-2 text-sm text-gray-600 space-y-1">
+                                <li>**Extract:** Grab data from source systems (databases, APIs).</li>
+                                <li>**Transform:** Clean, aggregate, and enrich the data **before** it moves to the destination.</li>
+                                <li>**Load:** Write the transformed data to the target system (e.g., a Data Mart).</li>
+                            </ol>
+                            **Key Point:** Transformation happens outside the final database.
+                        </p>
+                        
+                    </div>
+
+                    <!-- ELT Card (Modern approach) -->
+                    <div class="concept-card bg-gray-50 p-6 rounded-lg border-l-4 border-orange-500">
+                        <h3 class="text-2xl font-semibold text-orange-700 mb-3">ELT (Extract, Load, Transform)</h3>
+                        <p class="text-gray-700">
+                            The modern approach, favored with powerful cloud data warehouses:
+                            <ol class="list-decimal list-inside mt-2 text-sm text-gray-600 space-y-1">
+                                <li>**Extract:** Grab data from source systems.</li>
+                                <li>**Load:** Load the raw data directly into the target (e.g., a Data Lake or cloud warehouse).</li>
+                                <li>**Transform:** Clean and model the data **using the power of the target system**.</li>
+                            </ol>
+                            **Key Point:** Transformation happens inside the final database.
+                        </p>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Data Pipelines -->
+            <section id="pipelines" class="lg:col-span-3 bg-white p-6 rounded-xl shadow-lg mt-8">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 pb-2">3. Data Pipelines</h2>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <p class="text-gray-700">
+                        A **Data Pipeline** is the automated set of processes that moves data from one system to another. It's the engine that powers both ETL and ELT jobs.
+                    </p>
+                    <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                        <li>**Automation:** Runs on a schedule or triggers based on events (e.g., a new file arriving).</li>
+                        <li>**Orchestration:** Tools like Apache Airflow manage the dependencies and sequence of tasks in the pipeline.</li>
+                        <li>**Reliability:** Pipelines must include logging, monitoring, and error handling to ensure data integrity.</li>
+                    </ul>
+                    
+                </div>
+            </section>
+
+            <!-- Section 4 & 5: NoSQL Databases -->
+            <section class="lg:col-span-3 mt-8">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6 border-b-2 pb-2">4. NoSQL Databases: Cassandra and HBase</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Cassandra Card -->
+                    <div id="cassandra" class="concept-card bg-white p-6 rounded-xl shadow-lg border-t-8 border-red-500">
+                        <h3 class="text-2xl font-semibold text-red-700 mb-3">Apache Cassandra</h3>
+                        <p class="text-gray-700">
+                            **Cassandra** is a distributed **NoSQL database** designed to handle massive amounts of data across many commodity servers, providing high availability with no single point of failure. It is often described as a **wide-column store**.
+                        </p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Key Feature:** **High Availability** and **Linear Scalability**. You can add more nodes (servers) to increase capacity and performance.</li>
+                            <li>**Use Case:** Ideal for time-series data, operational data with high write throughput (e.g., IoT, monitoring).</li>
+                            <li>**Trade-off:** Uses **eventual consistency** to achieve speed and availability.</li>
+                        </ul>
+                    </div>
+
+                    <!-- HBase Card -->
+                    <div id="hbase" class="concept-card bg-white p-6 rounded-xl shadow-lg border-t-8 border-purple-500">
+                        <h3 class="text-2xl font-semibold text-purple-700 mb-3">Apache HBase</h3>
+                        <p class="text-gray-700">
+                            **HBase** is a distributed, versioned, **non-relational database** modeled after Google's Bigtable. It runs on top of the **Hadoop Distributed File System (HDFS)**. It is also a **wide-column store**.
+                        </p>
+                        <ul class="list-disc list-inside mt-3 text-sm text-gray-600 space-y-1">
+                            <li>**Key Feature:** **Strict Consistency** (compared to Cassandra) and seamless integration with the Hadoop ecosystem.</li>
+                            <li>**Use Case:** High-volume read/write access for large datasets, often integrated into complex Big Data platforms.</li>
+                            <li>**Trade-off:** Generally more complex to set up and manage due to its dependency on HDFS.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-16 py-6 border-t border-gray-300">
+            <p class="text-gray-500 text-sm">
+                Keep learning and building! Data Engineering is a powerful skill.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
