@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Duy & Bang | Nơi Tri Thức Hội Tụ</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tải Icon Lucide -->
+    <script type="module" src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Tùy chỉnh font chữ Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-indigo-700 tracking-tight">
+                D&B <span class="text-gray-500 text-base font-medium">Library</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Giới Thiệu</a>
+                <a href="#collection" class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Bộ Sưu Tập</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition duration-150 font-medium">Liên Hệ</a>
+            </nav>
+            <button id="menu-button" class="md:hidden p-2 text-gray-700 rounded-lg hover:bg-gray-100">
+                <!-- Icon Menu -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu (Ẩn ban đầu) -->
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-inner">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700">Giới Thiệu</a>
+            <a href="#collection" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700">Bộ Sưu Tập</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-700">Liên Hệ</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section-padding bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl sm:text-6xl font-extrabold mb-4 leading-tight">
+                Thư Viện Duy & Bang
+            </h1>
+            <p class="text-xl sm:text-2xl font-light mb-8 opacity-90 max-w-3xl mx-auto">
+                Nơi những câu chuyện gặp gỡ, tri thức lan tỏa. Cùng nhau xây dựng kho tàng kiến thức chung!
+            </p>
+            <a href="#collection" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-indigo-700 bg-white hover:bg-gray-100 transition duration-300 shadow-lg transform hover:scale-105">
+                Khám Phá Sách
+                <!-- Icon Arrow Right -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">Giới Thiệu Về Chúng Tôi</h2>
+            <p class="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+                Thư viện mini được sáng lập bởi Duy và Bang với niềm đam mê bất tận với sách.
+            </p>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Duy's Vision -->
+                <div class="p-6 bg-indigo-50 rounded-xl shadow-lg card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Icon Book Open -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open text-indigo-600"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        <h3 class="ml-4 text-2xl font-semibold text-gray-800">Tầm nhìn của Duy</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        "Thư viện này không chỉ là nơi lưu trữ sách, mà còn là một cổng thông tin mở. Tôi muốn mọi người dễ dàng tìm thấy những tài liệu học thuật và kỹ năng cần thiết để phát triển bản thân và sự nghiệp."
+                    </p>
+                </div>
+                <!-- Bang's Mission -->
+                <div class="p-6 bg-purple-50 rounded-xl shadow-lg card-hover transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <!-- Icon Users -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-purple-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <h3 class="ml-4 text-2xl font-semibold text-gray-800">Sứ mệnh của Bang</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        "Mục tiêu của tôi là xây dựng một không gian thoải mái, nơi mọi người có thể chia sẻ những cuốn sách giải trí, tiểu thuyết hay nhất. Sách là cầu nối cảm xúc, giúp chúng ta thư giãn và hiểu về thế giới đa chiều hơn."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section (Mock Data) -->
+    <section id="collection" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Bộ Sưu Tập Tiêu Biểu</h2>
+
+            <div id="book-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Book Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/150x225/1E90FF/ffffff?text=Sách+1" alt="Sách Tên Cà Rốt" class="w-2/5 mx-auto rounded-lg shadow-md mb-4 aspect-[2/3] object-cover" onerror="this.src='https://placehold.co/150x225/1E90FF/ffffff?text=Sách+1';">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Tư Duy Nhanh và Chậm</h3>
+                    <p class="text-sm text-gray-500 mb-3">Tác giả: Daniel Kahneman</p>
+                    <p class="text-gray-700 text-sm flex-grow">
+                        Tuyệt tác về tâm lý học và kinh tế học hành vi. Khám phá hai hệ thống tư duy chi phối mọi quyết định của con người.
+                    </p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full">Kỹ Năng Sống</span>
+                    </div>
+                </div>
+
+                <!-- Book Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/150x225/008080/ffffff?text=Sách+2" alt="Sách Tên Cà Rốt" class="w-2/5 mx-auto rounded-lg shadow-md mb-4 aspect-[2/3] object-cover" onerror="this.src='https://placehold.co/150x225/008080/ffffff?text=Sách+2';">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Rừng Na Uy</h3>
+                    <p class="text-sm text-gray-500 mb-3">Tác giả: Haruki Murakami</p>
+                    <p class="text-gray-700 text-sm flex-grow">
+                        Một cuốn tiểu thuyết lãng mạn, buồn bã về tuổi trẻ, tình yêu và sự mất mát trong bối cảnh những năm 60 ở Nhật Bản.
+                    </p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">Văn Học</span>
+                    </div>
+                </div>
+
+                <!-- Book Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover transition duration-300 flex flex-col">
+                    <img src="https://placehold.co/150x225/FFA500/ffffff?text=Sách+3" alt="Sách Tên Cà Rốt" class="w-2/5 mx-auto rounded-lg shadow-md mb-4 aspect-[2/3] object-cover" onerror="this.src='https://placehold.co/150x225/FFA500/ffffff?text=Sách+3';">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">Lịch Sử Loài Người</h3>
+                    <p class="text-sm text-gray-500 mb-3">Tác giả: Yuval Noah Harari</p>
+                    <p class="text-gray-700 text-sm flex-grow">
+                        Cuốn sách khám phá lịch sử của loài người từ những tổ tiên đầu tiên đến kỷ nguyên hiện đại với những góc nhìn độc đáo.
+                    </p>
+                    <div class="mt-4 text-center">
+                        <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Khoa Học</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button onclick="showMessage('Tính năng thêm sách sẽ được phát triển sớm!')" class="px-6 py-3 border border-indigo-600 text-indigo-600 font-medium rounded-full hover:bg-indigo-600 hover:text-white transition duration-300">
+                    Xem Toàn Bộ Sách (Sắp Ra Mắt)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contribution Section -->
+    <section class="section-padding bg-indigo-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Cùng Chung Tay Phát Triển Thư Viện</h2>
+            <p class="text-xl font-light mb-8 opacity-90 max-w-4xl mx-auto">
+                Nếu bạn có những đầu sách hay muốn chia sẻ hoặc đóng góp ý tưởng, hãy liên hệ với Duy và Bang ngay hôm nay!
+            </p>
+            <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-indigo-700 bg-white hover:bg-gray-100 transition duration-300 shadow-xl transform hover:scale-105">
+                Đóng Góp Ngay
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">Liên Hệ Với Chúng Tôi</h2>
+
+            <div class="bg-gray-50 p-8 rounded-xl shadow-2xl border border-gray-200">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Thông Tin Chung</h3>
+                        <div class="space-y-4 text-gray-600">
+                            <p class="flex items-start">
+                                <!-- Icon Map Pin -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-3 mt-1 text-indigo-500 flex-shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span class="text-sm">Địa chỉ: Phòng Đọc Thân Mật, Tòa nhà D&B, Hà Nội (Địa chỉ giả định)</span>
+                            </p>
+                            <p class="flex items-center">
+                                <!-- Icon Mail -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-3 text-indigo-500 flex-shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.8 1.8 0 0 1-2.06 0L2 7"/></svg>
+                                <a href="mailto:library@duyandbang.com" class="text-sm hover:underline">library@duyandbang.com</a>
+                            </p>
+                            <p class="flex items-center">
+                                <!-- Icon Phone -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone mr-3 text-indigo-500 flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <span class="text-sm">Duy: (+84) 901 234 567</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form (Mock) -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Gửi Lời Nhắn</h3>
+                        <form onsubmit="handleFormSubmit(event)">
+                            <div class="mb-4">
+                                <input type="text" placeholder="Tên của bạn" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" placeholder="Email của bạn" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <textarea placeholder="Nội dung tin nhắn" rows="4" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-md">
+                                Gửi đi
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">&copy; <span id="current-year"></span> Thư Viện Duy & Bang. Mọi quyền được bảo lưu.</p>
+            <p class="text-xs mt-2 text-gray-400">Được xây dựng với niềm đam mê đọc sách.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Custom Modal for Messages -->
+    <div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 hidden items-center justify-center z-[100]">
+        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full transform transition-all duration-300 scale-95 opacity-0" id="modal-content">
+            <div class="flex justify-between items-start mb-4">
+                <h4 class="text-xl font-bold text-indigo-600">Thông Báo</h4>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <!-- Icon X -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <p id="modal-text" class="text-gray-700 mb-6"></p>
+            <button onclick="closeModal()" class="w-full bg-indigo-600 text-white p-2 rounded-lg hover:bg-indigo-700 transition duration-300">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // --- Logic cho Mobile Menu ---
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Đóng menu khi click vào một link (trên mobile)
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Logic cho Modal Thông báo (thay thế alert) ---
+        const modal = document.getElementById('message-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalText = document.getElementById('modal-text');
+
+        function showMessage(message) {
+            modalText.textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Kích hoạt hiệu ứng transition
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            // Tắt hiệu ứng transition trước khi ẩn
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300); // Đợi transition kết thúc
+        }
+
+        // Đóng modal khi click ra ngoài
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // --- Logic cho Form (Mock Submission) ---
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            // Xử lý dữ liệu form ở đây (ví dụ: gửi đi)
+            const name = event.target.elements[0].value;
+            showMessage(`Cảm ơn ${name}! Lời nhắn của bạn đã được gửi thành công đến Duy và Bang. Chúng tôi sẽ phản hồi sớm.`);
+            event.target.reset(); // Xóa form
+        }
+
+    </script>
+</body>
+</html>
